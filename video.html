@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>口播视频上传 | 口才训练</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f6f6f6;
-            line-height: 1.7;
-        }
-        h1 { color: #333; }
-        .back { color:#007bff; margin-bottom:20px; display:inline-block; }
-        .box {
-            background: #fff;
-            padding:20px;
-            border-radius:10px;
-            margin-bottom:25px;
-            box-shadow:0 0 6px rgba(0,0,0,0.1);
-        }
-        video {
-            width:100%;
-            margin-top:10px;
-            border-radius:10px;
-        }
-    </style>
-</head>
-<body>
-
-<a class="back" href="index.html">← 返回主页</a>
-
-<h1>口播视频上传</h1>
-
-<div class="box">
-    <p>选择你今天的口播视频，用来查看发音、语速、停顿等问题。</p>
-
-    <input type="file" accept="video/*" onchange="loadVideo(event)">
-    <video id="preview" controls></video>
-</div>
-
-<div class="box">
-    <h3>如何请我帮你纠正？</h3>
-    <p>上传后，视频会在本地播放。  
-    如果你想让我帮你纠音、分析，你可以把视频**发到聊天窗口**。  
-    我会从：发音问题、语气、自信度、节奏、镜头感——逐条指出来。</p>
-</div>
-
-<script>
-function loadVideo(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const url = URL.createObjectURL(file);
-    const video = document.getElementById("preview");
-    video.src = url;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视频训练</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0; padding: 20px;
 }
-</script>
+.section {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+a { text-decoration: none; color: #333; }
+ul { margin: 10px 0 0 20px; }
+.back {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+</style>
+</head>
+
+<body>
+<a class="back" href="index.html">← 返回首页</a>
+<h1>🎥 视频训练</h1>
+
+<div class="section">
+    <h2>🎬 示范视频</h2>
+    <ul>
+        <li>标准口播节奏示范</li>
+        <li>情绪表达示范</li>
+        <li>开场白示范</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>📈 节奏训练</h2>
+    <ul>
+        <li>快慢节奏练习</li>
+        <li>断句节奏练习</li>
+        <li>语气变化技巧</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>🎧 模仿练习</h2>
+    <ul>
+        <li>模仿名人演讲</li>
+        <li>模仿主播音色</li>
+        <li>模仿口播视频节奏</li>
+    </ul>
+</div>
 
 </body>
 </html>
