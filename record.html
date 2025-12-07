@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日打卡 | 口才训练</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f8f8f8;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button:active {
+            opacity: 0.7;
+        }
+
+        #log {
+            white-space: pre-line;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+<a class="back" href="index.html">← 返回主页</a>
+
+<h1>每日打卡</h1>
+
+<div class="box">
+    <p>今天完成训练了吗？</p>
+    <button onclick="checkIn()">✔ 打卡</button>
+</div>
+
+<div class="box">
+    <h3>打卡记录</h3>
+    <div id="log"></div>
+</div>
+
+<script>
+    function checkIn() {
+        const today = new Date().toLocaleDateString();
+        let logs = localStorage.getItem('checkin_logs') || '';
+        
+        if (logs.includes(today)) {
+            alert("今天已经打过卡啦！");
+            return;
+        }
+
+        logs += today + "：已完成训练\n";
+        localStorage.setItem('checkin_logs', logs);
+        displayLogs();
+    }
+
+    function displayLogs() {
+        document.getElementById('log').innerText =
+            localStorage.getItem('checkin_logs') || "还没有记录";
+    }
+
+    displayLogs();
+</script>
+
+</body>
+</html>
