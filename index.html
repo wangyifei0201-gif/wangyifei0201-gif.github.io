@@ -1,67 +1,64 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>口才训练主页</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f4f4f4;
-            line-height: 1.9;
-        }
-        h1 { color: #222; }
-        .section {
-            background: #fff;
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        a { text-decoration:none; color:#007bff; }
-        ul { margin:10px 0 0 20px; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人训练主页</title>
+<style>
+    body {
+        font-family: sans-serif;
+        margin: 20px;
+        background: #f5f5f5;
+    }
+    h1 {
+        text-align: center;
+    }
+    .tree {
+        list-style: none;
+        padding-left: 20px;
+    }
+    .tree li {
+        margin: 10px 0;
+        cursor: pointer;
+    }
+    .sub {
+        display: none;
+        padding-left: 20px;
+    }
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+</style>
 </head>
-
 <body>
-    <div style="background:#fff;padding:12px;border-radius:8px;margin-bottom:18px;
-            box-shadow:0 0 6px rgba(0,0,0,0.1);">
-    <a href="index.html" style="text-decoration:none;color:#007bff;">
-        ← 返回主页
-        </a>
-    </div>
-<h1>📘 口才训练 · 主页</h1>
 
-<div class="section">
-    <h2>🗣 每日训练</h2>
-    <ul>
-        <li><a href="daily.html">进入每日训练主页面</a></li>
-        <li>→ 包含：热身、绕口令、气息、口播稿</li>
-    </ul>
-</div>
+<h1>个人训练系统</h1>
 
-<div class="section">
-    <h2>📚 素材库</h2>
-    <ul>
-        <li><a href="materials.html">绕口令素材库</a></li>
-        <li>未来可加：口播稿素材库、词汇提升区</li>
+<ul class="tree">
+    <li onclick="toggle('t1')">📁 每日练习</li>
+    <ul id="t1" class="sub">
+        <li><a href="daily.html">🔹 打卡记录</a></li>
+        <li><a href="record.html">🔹 练习记录</a></li>
     </ul>
-</div>
 
-<div class="section">
-    <h2>✔️ 每日打卡</h2>
-    <ul>
-        <li><a href="record.html">打卡页面</a></li>
+    <li onclick="toggle('t2')">📁 资料库</li>
+    <ul id="t2" class="sub">
+        <li><a href="materials.html">🔹 训练素材</a></li>
     </ul>
-</div>
 
-<div class="section">
-    <h2>🎥 视频上传 & 纠音</h2>
-    <ul>
-        <li><a href="video.html">上传视频并练习镜头感</a></li>
+    <li onclick="toggle('t3')">📁 视频区</li>
+    <ul id="t3" class="sub">
+        <li><a href="video.html">🔹 上传/观看视频</a></li>
     </ul>
-</div>
+</ul>
+
+<script>
+    function toggle(id) {
+        const block = document.getElementById(id);
+        block.style.display = block.style.display === "block" ? "none" : "block";
+    }
+</script>
 
 </body>
 </html>
