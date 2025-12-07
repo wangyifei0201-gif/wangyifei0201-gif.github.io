@@ -1,115 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日训练 · 口才提升系统</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: #f7f7f7;
-        }
-        h1 { font-size: 24px; margin-bottom: 10px; }
-        .section {
-            background: white;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
-        }
-        button {
-            padding: 10px 15px;
-            border: none;
-            background:#007bff;
-            color:white;
-            border-radius: 8px;
-            cursor:pointer;
-        }
-        .done {
-            color: green;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日训练</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0; padding: 20px;
+}
+.section {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+a { text-decoration: none; color: #333; }
+ul { margin: 10px 0 0 20px; }
+.back {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+</style>
 </head>
+
 <body>
-
-<h1>每日训练打卡</h1>
+<a class="back" href="index.html">← 返回首页</a>
+<h1>📅 每日训练</h1>
 
 <div class="section">
-    <h2>今日任务</h2>
-    <ul id="tasks">
-        <li><input type="checkbox" onchange="save()"> 绕口令练习（3分钟）</li>
-        <li><input type="checkbox" onchange="save()"> 发音校准（平舌/翘舌）</li>
-        <li><input type="checkbox" onchange="save()"> 5 分钟口播</li>
-        <li><input type="checkbox" onchange="save()"> 表达复盘（写 3 句）</li>
+    <h2>🔥 热身</h2>
+    <ul>
+        <li>开口练习：a o e i u</li>
+        <li>舌头灵活度练习</li>
+        <li>发声气息放松</li>
     </ul>
-    <p id="status"></p>
 </div>
 
 <div class="section">
-    <h2>今日绕口令</h2>
-    <p id="tongue"></p>
-    <button onclick="loadTongue()">换一个</button>
+    <h2>👅 绕口令</h2>
+    <ul>
+        <li>八百标兵奔北坡</li>
+        <li>黑化肥挥发发灰会花飞</li>
+        <li>四是四，十是十</li>
+    </ul>
 </div>
 
 <div class="section">
-    <h2>提交视频</h2>
-    <p>你可以录视频发给我，我会帮你纠正问题。</p>
+    <h2>💨 气息训练</h2>
+    <ul>
+        <li>腹式呼吸 10 组</li>
+        <li>长音练习 5 次</li>
+        <li>节奏呼吸法</li>
+    </ul>
 </div>
 
-<script>
-    const tongueTwisters = [
-        "四是四，十是十，十四是十四，四十是四十。",
-        "黑化肥发灰，灰化肥发黑。",
-        "吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮。",
-        "班长扛枪跑操场，操场扛枪找班长。"
-    ];
-
-    function loadTongue() {
-        const r = Math.floor(Math.random() * tongueTwisters.length);
-        document.getElementById("tongue").innerText = tongueTwisters[r];
-    }
-
-    // --- 保存打卡 ---
-    function save() {
-        const checkboxes = document.querySelectorAll('#tasks input');
-        const status = [];
-
-        checkboxes.forEach((box, i) => {
-            status[i] = box.checked;
-        });
-
-        localStorage.setItem("daily_tasks", JSON.stringify(status));
-        updateStatus();
-    }
-
-    // --- 加载打卡状态 ---
-    function load() {
-        const saved = JSON.parse(localStorage.getItem("daily_tasks"));
-        const boxes = document.querySelectorAll('#tasks input');
-
-        if (saved) {
-            boxes.forEach((box, i) => {
-                box.checked = saved[i];
-            });
-        }
-
-        updateStatus();
-        loadTongue();
-    }
-
-    function updateStatus() {
-        const boxes = document.querySelectorAll('#tasks input');
-        const doneCount = Array.from(boxes).filter(b => b.checked).length;
-
-        document.getElementById("status").textContent =
-            doneCount === boxes.length ? "✔ 今日已全部完成！" : `已完成 ${doneCount}/${boxes.length}`;
-    }
-
-    load();
-</script>
+<div class="section">
+    <h2>📖 口播练习</h2>
+    <ul>
+        <li>选择每日一篇稿件朗读</li>
+        <li>录音对比节奏与情绪</li>
+        <li>模仿专业主播音色</li>
+    </ul>
+</div>
 
 </body>
 </html>
